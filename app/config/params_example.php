@@ -1,6 +1,8 @@
 <?php
 
-// zone dynamiques
+// zone dynamiques $title et $content
+
+$title = "";
 
 $content = "";
 
