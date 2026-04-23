@@ -37,3 +37,22 @@ function findAllPopulars(PDO $conn, int $limit = 3): array {
     return $popularsRecipes;
 
 }
+
+function findAllByAuthorId(PDO $conn, int $authorId): array {
+
+    /* requete SQL */ 
+
+    $sql = "SELECT * 
+    FROM recipes
+    WHERE user_id = :authorId
+    ORDER BY created_at DESC
+    LIMIT 3;";
+
+    $rs = $conn->prepare($sql);
+    $rs->bindValue(':authorId', $authorId, PDO::PARAM_INT);
+  
+    $rs->execute();
+    $authorLatestRecipes = $rs->fetchAll(PDO::FETCH_ASSOC);
+    return $authorLatestRecipes;
+
+}
