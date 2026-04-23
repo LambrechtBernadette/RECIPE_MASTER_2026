@@ -3,10 +3,10 @@
 //PATTERN: /
 //CTRL: pagesController (composite)
 //ACTION: home
-//pas de use car ilne sera utilisé une fois
+//pas de use car il ne sera utilisé une fois
 
 
 include_once '../app/controllers/pagesController.php';
 
-\App\Controllers\PagesController\homeAction($conn);
+\App\Controllers\PagesController\homeAction($conn,3);
 

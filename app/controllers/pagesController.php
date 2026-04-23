@@ -5,14 +5,15 @@ namespace App\Controllers\PagesController;
 use \PDO;
 use App\Models\RecipesModel;
 
-function homeAction (PDO $conn)
+function homeAction (PDO $conn, int $limit = 3)
 {
 
 /*  on va cherhcer  la fonction dans le dossier models */
     include_once '../app/models/recipesModel.php';
     $randomRecipe = RecipesModel\findOneByrand($conn);
     //on met le namespace devant la fonction
-
+    $popularsRecipes= RecipesModel\findAllPopulars($conn, $limit=3);
+    
  /* on lance le tampon et on inclu la vue dedans  */
     GLOBAL $title, $content;
     $title = "HOME";
