@@ -1,0 +1,14 @@
+ROUTE pages.home
+
+	RANDOM RECIPE - déjà fait !
+
+	POPULAR RECIPES
+		- Envoyez à la vue une variable $recipes (3 dernières) depuis recipesModel\findAllPopulars()
+		- Placez le code avec le foreach dans la vue pages.home
+
+
+	RANDOM AUTHOR + RECIPES
+		- Envoyez à la vue une variable $randomUser depuis authorsModel\findOneByRand()
+		- Envoyez à la vue une variable $userLatestRecipes depuis recipesModel\findAllByUserId()
+		  en lui envoyant l'id du $randomUser
+		- Placez le code de la section en bouclant les recipes
