@@ -1,5 +1,5 @@
 <?php
-//ROUTE PAR DEFAUT
+//ROUTER PRINCIPAL
 //PATTERN: /
 //CTRL: pagesController (composite)
 //ACTION: home
@@ -8,5 +8,5 @@
 
 include_once '../app/controllers/pagesController.php';
 
-\App\Controllers\PagesController\homeAction($conn,3);
+\App\Controllers\PagesController\homeAction($conn);
 
