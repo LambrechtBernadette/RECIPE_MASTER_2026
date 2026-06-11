@@ -20,7 +20,7 @@
             <?php echo \Core\Helpers\truncate($randomRecipe['description'], 200); ?>
         </p>
         <div class="flex items-center mb-4">
-            <span class="text-gray-400 mr-2">Par Jean Dupont</span>
+            <span class="text-gray-400 mr-2">Par <?php echo $randomRecipe['user_name'] ?? 'Auteur inconnu'; ?></span>
             <span class="text-gray-500"><i class="fas fa-comment"></i> 12 commentaires</span>
         </div>
         <a

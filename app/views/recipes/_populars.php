@@ -8,30 +8,7 @@
 
         <?php foreach ($popularRecipes as $recipe): ?>
             <!-- Recipe Card -->
-            <article
-                class="bg-white rounded-lg overflow-hidden shadow-lg relative">
-                <img
-                    class="w-full h-48 object-cover"
-                    src="<?php echo $recipe['picture']; ?>"
-                    alt="<?php echo $recipe['name']; ?>" />
-                <div class="p-4">
-                    <h3 class="text-xl font-bold mb-2"><?php echo $recipe['name']; ?></h3>
-                    <div class="flex items-center mb-2">
-                        <span class="text-yellow-500 mr-1"><i class="fas fa-star"></i></span>
-                        <span>4.5</span>
-                    </div>
-                    <p class="text-gray-600"><?php echo \Core\Helpers\truncate($recipe['description'], 50); ?></p>
-                    <div class="flex items-center mt-4">
-                        <span class="text-gray-700 mr-2">Par <?php echo $recipe['user_id']; ?></span>
-                        <span class="text-gray-500"><i class="fas fa-comment"></i> 8 commentaires</span>
-                    </div>
-                    <a
-                        href="?recipes=show&id=<?php echo $recipe['id']; ?>"
-                        class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
-                        Voir la recette
-                    </a>
-                </div>
-            </article>
+                <?php include '../app/views/recipes/_card.php'; ?>
         <?php endforeach; ?>
     </div>
 </section>

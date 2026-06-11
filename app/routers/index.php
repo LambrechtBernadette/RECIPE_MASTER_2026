@@ -4,7 +4,15 @@
 //CTRL: pagesController (composite)
 //ACTION: home
 //pas de use car il ne sera utilisé une fois
-if (issets($_GET['recipes'])):
+
+
+if (isset($_GET['users'])):
+    include_once '../app/routers/users.php';
+
+elseif (isset($_GET['ingredients'])):
+    include_once '../app/routers/ingredients.php';
+
+elseif (isset($_GET['recipes'])):
     include_once '../app/routers/recipes.php';
 
 else:
