@@ -26,4 +26,19 @@ function indexAction(PDO $conn)
     include '../app/views/recipes/index.php';
     $content = ob_get_clean();    
 }
+
+function categoryAction(PDO $conn, int $categoryId)
+{
+    include_once '../app/models/recipesModel.php';
+    include_once '../app/models/typesModel.php';
+    $recipes = RecipesModel\findAllByCategoryId($conn, $categoryId);
+    $category = \App\Models\TypesModel\findOneById($conn, $categoryId);
+    $categoryName = $category['name'] ?? 'Recettes';
+
+    GLOBAL $content, $title;
+    $title = $categoryName;
+    ob_start();
+    include '../app/views/recipes/index.php';
+    $content = ob_get_clean();
+}
  

@@ -15,4 +15,18 @@
     body {
         font-family: "Poppins", sans-serif;
     }
+
+    a {
+        text-decoration: none;
+        color: #f0f0f3;
+    }
+
+    tr th,
+    tr td {
+        border: 1px solid #e6e6e6;
+    }
+
+    tr th {
+        background-color: #f5f5f5;
+    }
 </style>

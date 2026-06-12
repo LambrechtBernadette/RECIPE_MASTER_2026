@@ -70,6 +70,22 @@ function findAll(PDO $conn)
     return $recipes;
 }
 
+function findAllByCategoryId(PDO $conn, int $categoryId)
+{
+    $sql = "SELECT r.id AS recipe_id, r.name AS recipe_name, r.picture AS recipe_picture, r.description, r.created_at, u.name AS user_name, ROUND(AVG(rt.value), 1) AS average_rating, COUNT(DISTINCT c.id) AS comment_count
+             FROM recipes r
+             JOIN users u ON r.user_id = u.id
+             LEFT JOIN ratings rt ON r.id = rt.recipe_id
+             LEFT JOIN comments c ON r.id = c.recipe_id
+             WHERE r.type_id = :categoryId
+             GROUP BY r.id, r.name, r.picture, r.description, r.created_at, u.name
+             ORDER BY r.created_at DESC;";
+    $rs = $conn->prepare($sql);
+    $rs->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function findAllRecipesByUserId(PDO $conn, int $userID)
 {
     $sql = "SELECT r.id AS recipe_id, r.name AS recipe_name, r.picture AS recipe_picture, r.description, r.created_at, u.name AS user_name, ROUND(AVG(rt.value), 1) AS average_rating, COUNT(DISTINCT c.id) AS comment_count
